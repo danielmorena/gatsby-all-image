@@ -18,7 +18,9 @@ export default IndexPage
 
 export const query = graphql`
   query ImagesQuery {
-    allFile {
+      # the filter is usefull if you have multiple source-filesystem instances
+      # the name "images" is set in the gatsby-config
+    allFile(filter: {sourceInstanceName: {eq: "images"}}) {
       edges {
         node {
             childImageSharp {
